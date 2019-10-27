@@ -1,0 +1,17 @@
+//
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+// test sass
+$primary-color: #2e878a;
+.custom-component {
+  color: $primary-color;
+}
