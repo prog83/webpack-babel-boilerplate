@@ -1,8 +1,20 @@
 {
   "name": "webpack-babel-boilerplate",
   "version": "0.1.0",
+  "description": "webpack-babel-boilerplate",
+  "author": "Aleksandr Myronov prog3mail@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/prog83/webpack-babel-boilerplate",
   "private": true,
   "main": "src/app/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "core-js": "^3.3.4",
+    "regenerator-runtime": "^0.13.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
@@ -13,40 +25,39 @@
     "css-loader": "^3.2.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
-    "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
   },
-  "scripts": {
-    "dev": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "dependencies": {
-    "core-js": "^3.3.4",
-    "regenerator-runtime": "^0.13.3"
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add ."
+    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prog83/webpack-babel-boilerplate.git"
   },
+  "bugs": {
+    "url": "https://github.com/prog83/webpack-babel-boilerplate/issues"
+  },
   "keywords": [
     "Javascipt",
     "Webpack",
     "Babel"
-  ],
-  "author": "Aleksandr Myronov prog3mail@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/prog83/webpack-babel-boilerplate/issues"
-  },
-  "homepage": "https://github.com/prog83/webpack-babel-boilerplate"
+  ]
 }
