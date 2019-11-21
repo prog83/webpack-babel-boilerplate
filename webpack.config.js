@@ -8,14 +8,14 @@ const config = {
   entry: ['core-js/stable', 'regenerator-runtime', path.join(__dirname, '/src/app/index.js')],
   output: {
     path: path.resolve('./build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.(sass|scss)$/,
@@ -24,28 +24,28 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
+              hmr: process.env.NODE_ENV === 'development',
+            },
           },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
-      }
-    ]
+          { loader: 'sass-loader' },
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/pages/index.html'),
       inject: 'body',
-      hash: true
-    })
+      hash: true,
+    }),
   ],
   resolve: {
-    modules: [path.resolve('./src'), path.resolve('./node_modules')]
+    modules: [path.resolve('./src/components'), path.resolve('./node_modules')],
   },
   devServer: {
     contentBase: [path.resolve('./pages'), path.resolve('./public')],
@@ -62,10 +62,10 @@ const config = {
       hash: false,
       modules: false,
       timings: false,
-      version: false
-    }
+      version: false,
+    },
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
 };
 
 module.exports = config;
